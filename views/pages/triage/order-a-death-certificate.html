@@ -1,0 +1,33 @@
+{% extends "pages/hmpo-template-base.njk" %}
+
+{% from "hmpo-inset-text/macro.njk" import hmpoInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% set hmpoPageKey = "order-a-death-certificate" %}
+
+{% block govukHeader %}
+  {% if isAuthenticated %}
+      {{ govukHeader({
+          assetsPath: assetPath + '/images',
+          homepageUrl: govukHomePage or "https://gov.uk",
+          serviceName: govukServiceName,
+          serviceUrl: govukServiceUrl or "/",
+          containerClasses: "govuk-width-container",
+          useTudorCrown: true,
+          navigation: [
+              {
+                href: "/sign-out",
+                text: "Sign out",
+                active: true
+              }
+            ]
+      }) }}
+  {% else %}
+      {{ super() }}
+  {% endif %}
+{% endblock %}
+
+{% block mainContentBody %}
+    {{ super() }}
+      {{ govukButton({text: "Continue", href: "/rolo", isStartButton: false}) }}
+{% endblock %}

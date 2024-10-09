@@ -1,0 +1,83 @@
+{% macro cookieBanner(options) %}
+  {% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  {% set hideCookieBanner = options.hideCookieBanner | default(false) %}
+  {% set hideCookieBannerContent = options.hideCookieBannerContent | default(false) %}
+  {% set hideCookieAcceptText = options.hideCookieAcceptText | default(true) %}
+  {% set hideCookieRejectText = options.hideCookieRejectText | default(true) %}
+  {% set hideCookieBannerRemoveBtn = options.hideCookieBannerRemoveBtn | default(false) %}
+
+  {% set cookieOverviewText %}
+    {{ options.cookieOverviewText | default('
+      <p class="govuk-body">We use some essential cookies to make this service work.</p>
+      <p class="govuk-body">We’d like to set additional cookies so we can remember your settings, understand how people use the service and make improvements.</p>
+    ') | safe }}
+  {% endset %}
+
+  {% set cookieAcceptText %}
+    {{ options.cookieAcceptText | default('
+      <p class="govuk-body">You have accepted additional cookies. You can change your cookie settings at any time.</p>
+    ') | safe }}
+  {% endset %}
+
+  {% set cookieRejectText %}
+    {{ options.cookieRejectText | default('
+      <p class="govuk-body">You have rejected additional cookies. You can change your cookie settings at any time.</p>
+    ') | safe }}
+  {% endset %}
+
+  <form method="get">
+    {{ govukCookieBanner({
+      ariaLabel: "Cookies on LEO",
+      hidden: hideCookieBanner,
+      messages: [
+        {
+          headingText: "Cookies on LEO",
+          attributes: { id: "main-cookie-content" },
+          hidden: hideCookieBannerContent,
+          html: cookieOverviewText,
+          actions: [
+            {
+              text: "Accept additional cookies",
+              type: "submit",
+              name: "additionalCookies",
+              value: "enable"
+            },
+            {
+              text: "Reject additional cookies",
+              type: "submit",
+              name: "additionalCookies",
+              value: "disable"
+            },
+            {
+              text: "View cookies",
+              href: "help/cookies"
+            }
+          ]
+        },
+        {
+          html: cookieAcceptText,
+          hidden: hideCookieAcceptText,
+          attributes: { id: "cookie-accept-text" }
+        },
+        {
+          html: cookieRejectText,
+          hidden: hideCookieRejectText,
+          attributes: { id: "cookie-reject-text" }
+        },
+        {
+          html: govukButton({
+            text: "Hide this message",
+            isStartButton: false,
+            type: "submit",
+            name: "hideCookieBanner",
+            value: "yes"
+          }),
+          hidden: hideCookieBannerRemoveBtn,
+          attributes: { id: "hide-cookie-banner" }
+        }
+      ]
+    }) }}
+  </form>
+{% endmacro %}

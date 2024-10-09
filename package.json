@@ -1,0 +1,60 @@
+{
+  "name": "leo-frontend-alpha",
+  "version": "1.0.0",
+  "description": "",
+  "author": "HMPO",
+  "main": "app.js",
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "start": "node .",
+    "start-dev": "nodemon .",
+    "postinstall": "npm run build",
+    "build": "npm run build:sass && npm run build:js",
+    "build:sass": "mkdir -p public/stylesheets; sass --load-path=node_modules/ assets/stylesheets/app.scss --style=compressed public/stylesheets/application.css",
+    "build:js": "mkdir -p public/javascripts; cat node_modules/govuk-frontend/govuk/all.js node_modules/hmpo-components/all.js assets/javascripts/*.js > public/javascripts/application.js",
+    "lint": "eslint .",
+    "test:unit": "nyc _mocha ./test/unit --recursive --require ./test/unit/helper",
+    "prettier": "prettier . --write",
+    "pretty-lint": "npm run prettier && npm run lint"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "jsonwebtoken": "9.0.2",
+    "govuk-frontend": "latest",
+    "hmpo-components": "latest",
+    "hmpo-config": "latest",
+    "hmpo-form-wizard": "latest",
+    "hmpo-i18n": "latest",
+    "hmpo-logger": "latest",
+    "hmpo-model": "latest",
+    "sass": "latest",
+    "nunjucks": "latest",
+    "hmpo-app": "latest",
+    "@msdyn365-commerce/retail-proxy": "latest",
+    "@azure/msal-node": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.8",
+    "@babel/preset-env": "^7.25.3",
+    "esm": "^3.2.25",
+    "@eslint/js": "latest",
+    "eslint": "latest",
+    "eslint-config-prettier": "^9.1.0",
+    "nodemon": "latest",
+    "prettier": "3.2.5",
+    "hmpo-nunjucks-test": "^1.4.1",
+    "sinon-chai": "latest",
+    "nyc": "^15.1.0",
+    "proxyquire": "^2.1.3",
+    "reqres": "^3.0.1",
+    "mocha": "^10.4.0"
+  }
+}

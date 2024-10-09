@@ -1,0 +1,64 @@
+index:
+  title: Order a birth, death, marriage or civil partnership certificate
+  content:
+    - You need to register on the General Register Office (GRO) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales.
+    - You can use this service to research your family tree.
+    - Order with the <a href=https://www.gov.uk/research-family-history target="_blank">GRO index reference number</a>.
+    - It takes around 10 minutes and you’ll need a debit or credit card.
+  scotland-and-ni-process: There’s a different process for getting certificates in Scotland and getting certificates in Northern Ireland.
+
+order-a-death-certificate:
+  title: Order a death certificate
+  content:
+    - >
+      <h2 class="govuk-heading-m">Before you start</h2>
+    - >
+      <p class="govuk-body">You will need the following details:</p>
+    - >
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the year the death was registered</li>
+        <li>the person's surname at the time of death</li>
+        <li>the person's sex at the time of death</li>
+      </ul>
+    - >
+      <p class="govuk-body">The details you provide should be:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>as they would be written on official documents, such as a passport</li>
+        <li>as they were when they died</li>
+      </ul>
+
+error:
+  title: An error occured
+  content: An error occured
+
+sessionEnded:
+  title: Sorry, you’ll have to start again your session has ended
+  content:
+    - Your session automatically ends if you don’t use the service for {{sessionTime}} minutes. We do this for your security.
+
+sessionExpired:
+  title: Session Expired
+  content: Your session has expired.
+
+fileNotFound:
+  title: File not found
+  content: The file requested could not be found
+
+pageNotFound:
+  title: Page not found
+
+spinner:
+  title: Continuing to sign-in.
+  content:
+    - Do not click back or refresh your browser.
+
+sign-out:
+  title: Proceeding to sign-out.
+  content:
+    - Do not click back or refresh your browser.
+
+cookies:
+  title: Cookies on LEO
+  content:
+    - Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.
+    - Cookies are files saved on your phone, tablet or computer when you visit a website.

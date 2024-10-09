@@ -1,0 +1,12 @@
+{% extends "pages/form-template-base.njk" %}
+
+{% set hmpoPageKey = "index" %}
+
+{% from "hmpo-submit/macro.njk" import hmpoSubmit %}
+
+{% block submitButton %}
+    {{ hmpoSubmit(ctx, {
+        key: "startNow",
+        id: "startNow"
+    }) }}
+{% endblock %}
