@@ -1,0 +1,16 @@
+{% extends "form-template.njk" %}
+
+{% from "pages/cookies/cookie-banner-macro.njk" import cookieBanner %}
+
+{# disable default cookie banner #}
+{% set disableCookieBanner = true %}
+
+{% block cookieBanner %}
+  {{ cookieBanner({
+    hideCookieBanner: hideCookieBanner,
+    hideCookieBannerContent: hideCookieBannerContent,
+    hideCookieAcceptText: hideCookieAcceptText,
+    hideCookieRejectText: hideCookieRejectText,
+    hideCookieBannerRemoveBtn: hideCookieBannerRemoveBtn
+  }) }}
+{% endblock %}

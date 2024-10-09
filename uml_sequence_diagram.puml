@@ -1,0 +1,30 @@
+@startuml
+User -> "LEO Triage Page"
+"LEO Triage Page" -> "GOV.UK Login": Check Auth
+"GOV.UK Login" -> "LEO Triage Page": Successful Auth
+"LEO Triage Page" -> "LEO Customer Service": Check user exists
+alt user exists
+    "LEO Customer Service" -> "Dynamics eCommerce": Load Account/Customer Data (readAsync method)
+else user does not exist
+    "LEO Customer Service" -> "Dynamics eCommerce": Create Account/Customer (createCustomerAsync method) 
+    "Dynamics eCommerce" -> "LEO Customer Service": Make association between Account/Customer) and GOV ID
+end
+"LEO Customer Service" -> "LEO Triage Page": Return Customer Data (basket, customer data etc.)
+"LEO Triage Page" -> "LEO Start Page"
+"LEO Start Page" -> "Search journey" : Start search journey, select facets
+"Search journey" -> "Online indexes" : Search for products against DB
+"Search journey" -> "Dynamics eCommerce" : Item PRODUCT pricing (getByIdsAsync method)
+"Search journey" -> "Dynamics eCommerce" : Add product to CART lines (addCartLinesAsync method) with product codes (hard coded?)
+"Search journey" -> "View basket" : Proceed to basket view
+"Dynamics eCommerce" -> "View basket" : Load CART lines (readAsync method)
+"View basket" -> "Dynamics eCommerce" : Edit CART lines (updateCartLinesAsync method)
+"View basket" -> "Checkout page" : Proceed to checkout
+"Checkout page" -> "GOV.UK Pay" : Proceed to payment
+"GOV.UK Pay" -> "Checkout page" : Redirect back to checkout page
+"Checkout page" -> "Dynamics eCommerce" : Setup TenderLine for payment (cash payment/dummy payment)
+"Checkout page" -> "Dynamics eCommerce" : Create Order from CART (checkout method with TenderLine)
+"Dynamics eCommerce" -> "Checkout page": Return Order information
+"Checkout page" -> "Order Confirmation Page" : Show order confirmation
+@enduml
+
+ 

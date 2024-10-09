@@ -1,0 +1,26 @@
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "hmpo-auto-submit/macro.njk" import hmpoAutoSubmit %}
+{% from "hmpo-html/macro.njk" import hmpoHtml %}
+
+{% set hmpoPageKey = "spinner" %}
+{% set disableWelsh = true %}
+{% set disableCookieBanner = true %}
+
+{% extends "app-template.njk" %}
+
+{% block backLink %}{% endblock %}
+{% set content %}
+    <h1 id="spinner-header" data-page="{{hmpoPageKey}}">{{ translate("pages.spinner.title") }}</h1>
+    {{ hmpoHtml(translate("pages.spinner.content", { default: [] })) }}
+{% endset %}
+{% block mainContent %}
+    </div><div class="govuk-grid-column-full">
+        {% call hmpoForm(ctx) %}
+
+            {{ hmpoAutoSubmit(ctx, {
+                submitDelay: 500,
+                html: content
+            }) }}
+        {% endcall %}
+    </div>
+{% endblock %}

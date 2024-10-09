@@ -1,0 +1,13 @@
+govuk:
+  serviceName: Order a certificate (Alpha)
+  backLink: Back
+  error: Error
+buttons:
+  next: Continue
+  startAgain: Start again
+  submit: Submit
+  startNow: Start now >
+validation:
+  required: Please enter {{label}}.
+  numeric: "{{label}} must only contain numbers."
+  default: You must answer this question.

@@ -1,0 +1,61 @@
+type-of-certificate:
+  legend: What type of certificate are you searching for?
+  label: type of certificate
+  items:
+    birth:
+      label: Birth
+    death:
+      label: Death
+    marriageOrCP:
+      label: Marriage or Civil Patnership
+    adoption:
+      label: Adoption
+    other:
+      label: Other
+      hint: "For example, a certificate that was registered overseas"
+
+death-registered-after-2009:
+  legend: Was the death registered after 1 January 2010?
+  label: when death was registered
+  items:
+    yes:
+      label: Yes
+    no:
+      label: No
+      hint: "No, it was registered on or before 31 December 2009"
+    "i don't know":
+      label: "I don't know"
+
+delivery-method:
+  legend: What delivery method do you need?
+  label: a delivery method
+  items:
+    standard:
+      label: Standard UK
+      hint: £11.00. It will take up to 10 days to arrive.
+    priority:
+      label: Priority UK
+      hint: "£35.00. Sent the next working day if ordered before 4pm."
+    overseas:
+      label: Overseas delivery
+      hint: Send to an address outside the UK.
+
+searching-for-one-person:
+  legend: Are you searching for one person?
+  label: what you are searching for
+  items:
+    yes:
+      label: Yes, I only want to search the records to find one person
+    no:
+      label: No, I want to find records for multiple different people
+    "i don't know":
+      label: "I don't know"
+
+cookies-setting:
+  label: Cookie Preferences
+  hint: some description of the cookies
+  items:
+    enable:
+      label: Enable cookies
+    disable:
+      label: Disable cookies

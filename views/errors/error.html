@@ -1,0 +1,23 @@
+{% set hmpoPageKey = "error" %}
+{% from "hmpo-submit/macro.njk" import hmpoSubmit %}
+
+{% extends "hmpo-template.njk" %}
+
+{% block content %}
+    {{ super() }}
+
+    {% block submitButton %}
+        {{ hmpoSubmit(ctx, {
+            id: "startAgain",
+            key: "startAgain",
+            href: urls.leo
+        }) }}
+    {% endblock %}
+
+    {% if showStack %}
+        <h3>{{error.code + " - " if error.code}}{{error.message}}</h3>
+        {%if error.stack %}
+            <pre>{{error.stack | safe}}</pre>
+        {% endif %}
+    {% endif %}
+{% endblock %}

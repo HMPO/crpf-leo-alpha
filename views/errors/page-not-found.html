@@ -1,0 +1,16 @@
+{% set hmpoPageKey = "pageNotFound" %}
+{% from "hmpo-submit/macro.njk" import hmpoSubmit %}
+
+{% extends "hmpo-template.njk" %}
+
+{% block content %}
+    {{ super() }}
+
+    {% block submitButton %}
+        {{ hmpoSubmit(ctx, {
+            id: "startAgain",
+            key: "startAgain",
+            href: urls.leo
+        }) }}
+    {% endblock %}
+{% endblock %}
